@@ -34,6 +34,7 @@ public class Controller implements Initializable {
 
     @FXML
     private TextField usernameTextField;
+
     @FXML
     private PasswordField passwordField;
     public void loginButtonOnAction(ActionEvent event) {
