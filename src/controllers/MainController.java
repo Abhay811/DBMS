@@ -39,6 +39,8 @@ public class MainController implements Initializable{
     @FXML
     private ImageView pharmacy_logo;
 
+    @FXML
+    private Button addCustomer;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -59,6 +61,12 @@ public class MainController implements Initializable{
             purchaseGridPane.setVisible(false);
             saleCounterGridPane.setVisible(false);
             inventoryGridPane.setVisible(false);
+
+            customerButton.setStyle("-fx-background-color: #3083b3;");
+            dealerButton.setStyle("-fx-background-color: #96d8e9;");
+            purchaseButton.setStyle("-fx-background-color: #96d8e9;");
+            saleCounterButton.setStyle("-fx-background-color: #96d8e9;");
+            inventoryButton.setStyle("-fx-background-color: #96d8e9;");
         }
 
         else if (event.getSource() == dealerButton) {
@@ -68,6 +76,12 @@ public class MainController implements Initializable{
             purchaseGridPane.setVisible(false);
             saleCounterGridPane.setVisible(false);
             inventoryGridPane.setVisible(false);
+
+            customerButton.setStyle("-fx-background-color: #96d8e9;");
+            dealerButton.setStyle("-fx-background-color: #3083b3;");
+            purchaseButton.setStyle("-fx-background-color: #96d8e9;");
+            saleCounterButton.setStyle("-fx-background-color: #96d8e9;");
+            inventoryButton.setStyle("-fx-background-color: #96d8e9;");
         }
         else if (event.getSource() == purchaseButton) {
             purchaseGridPane.toFront();
@@ -76,6 +90,12 @@ public class MainController implements Initializable{
             dealerGridPane.setVisible(false);
             saleCounterGridPane.setVisible(false);
             inventoryGridPane.setVisible(false);
+
+            customerButton.setStyle("-fx-background-color: #96d8e9;");
+            dealerButton.setStyle("-fx-background-color: #96d8e9;");
+            purchaseButton.setStyle("-fx-background-color: #3083b3;");
+            saleCounterButton.setStyle("-fx-background-color: #96d8e9;");
+            inventoryButton.setStyle("-fx-background-color: #96d8e9;");
         }
         else if (event.getSource() == saleCounterButton) {
             saleCounterGridPane.toFront();
@@ -84,6 +104,13 @@ public class MainController implements Initializable{
             dealerGridPane.setVisible(false);
             purchaseGridPane.setVisible(false);
             inventoryGridPane.setVisible(false);
+
+            customerButton.setStyle("-fx-background-color: #96d8e9;");
+            dealerButton.setStyle("-fx-background-color: #96d8e9;");
+            purchaseButton.setStyle("-fx-background-color: #96d8e9;");
+            saleCounterButton.setStyle("-fx-background-color: #3083b3;");
+            inventoryButton.setStyle("-fx-background-color: #96d8e9;");
+
         }
         else if (event.getSource() == inventoryButton) {
             inventoryGridPane.toFront();
@@ -92,6 +119,12 @@ public class MainController implements Initializable{
             dealerGridPane.setVisible(false);
             purchaseGridPane.setVisible(false);
             saleCounterGridPane.setVisible(false);
+
+            customerButton.setStyle("-fx-background-color: #96d8e9;");
+            dealerButton.setStyle("-fx-background-color: #96d8e9;");
+            purchaseButton.setStyle("-fx-background-color: #96d8e9;");
+            saleCounterButton.setStyle("-fx-background-color: #96d8e9;");
+            inventoryButton.setStyle("-fx-background-color: #3083b3;");
         }
     }
 }

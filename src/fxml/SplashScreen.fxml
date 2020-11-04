@@ -2,7 +2,6 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -13,10 +12,7 @@
    <children>
       <Pane layoutY="-1.0" prefHeight="400.0" prefWidth="600.0">
          <children>
-            <ImageView fitHeight="100.0" fitWidth="300.0" layoutX="252.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../DBMS/Project/8.png" />
-               </image>
+            <ImageView fx:id="splashImageView" fitHeight="175.0" fitWidth="300.0" layoutX="162.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
