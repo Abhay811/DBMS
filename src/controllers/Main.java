@@ -11,14 +11,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/SplashScreen.fxml"));
         //primaryStage.setTitle("Abhay");
-        primaryStage.initStyle(StageStyle.DECORATED);
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
-
-
     public static void main(String[] args) {
         launch(args);
     }
