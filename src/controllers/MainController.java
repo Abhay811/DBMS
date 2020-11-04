@@ -39,8 +39,8 @@ public class MainController implements Initializable{
     @FXML
     private ImageView pharmacy_logo;
 
-    @FXML
-    private Button addCustomer;
+//    @FXML
+//    private Button addCustomer;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
