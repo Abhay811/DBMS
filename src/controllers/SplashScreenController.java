@@ -50,6 +50,7 @@ public class SplashScreenController implements Initializable {
                         } catch (Exception e) {
                             Logger.getLogger(SplashScreenController.class.getName()).log(Level.SEVERE, null, e);
                         }
+                        assert root != null;
                         Scene scene = new Scene(root);
                         Stage stage = new Stage();
                         stage.setScene(scene);
