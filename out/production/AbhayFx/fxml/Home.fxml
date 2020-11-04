@@ -74,7 +74,7 @@
          <children>
             <StackPane>
                <children>
-                  <GridPane fx:id="customerGridPane" minHeight="-Infinity" prefHeight="611.0" prefWidth="1021.0">
+                  <GridPane fx:id="customerGridPane" gridLinesVisible="true" minHeight="-Infinity" prefHeight="611.0" prefWidth="1021.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
@@ -97,14 +97,14 @@
                                  <font>
                                     <Font size="14.0" />
                                  </font></Label>
-                              <TextField layoutX="185.0" layoutY="26.0" prefHeight="30.0" prefWidth="200.0" />
-                              <TextField layoutX="185.0" layoutY="60.0" prefHeight="30.0" prefWidth="200.0" />
-                              <Button fx:id="addCustomer" layoutX="339.0" layoutY="224.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #4ca0b5;" text="Add">
+                              <TextField fx:id="customerNameTextField" layoutX="185.0" layoutY="26.0" prefHeight="30.0" prefWidth="200.0" />
+                              <TextField fx:id="customerContactTextField" layoutX="185.0" layoutY="60.0" prefHeight="30.0" prefWidth="200.0" />
+                              <Button fx:id="addCustomerButton" layoutX="339.0" layoutY="224.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #4ca0b5;" text="Add">
                                  <font>
                                     <Font name="Tahoma" size="14.0" />
                                  </font>
                               </Button>
-                              <TextArea layoutX="185.0" layoutY="108.0" prefHeight="67.0" prefWidth="200.0" />
+                              <TextArea fx:id="customerAddressTextArea" layoutX="185.0" layoutY="108.0" prefHeight="67.0" prefWidth="200.0" />
                            </children>
                         </Pane>
                         <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
@@ -139,14 +139,14 @@
                                  <font>
                                     <Font size="14.0" />
                                  </font></Label>
-                              <TextField layoutX="185.0" layoutY="26.0" prefHeight="30.0" prefWidth="200.0" />
-                              <TextField layoutX="185.0" layoutY="60.0" prefHeight="30.0" prefWidth="200.0" />
-                              <Button layoutX="311.0" layoutY="249.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="149.0" style="-fx-background-color: #3083b3;" text="Add">
+                              <TextField fx:id="dealerNameTextField" layoutX="185.0" layoutY="26.0" prefHeight="30.0" prefWidth="200.0" />
+                              <TextField fx:id="dealerContactTextField" layoutX="185.0" layoutY="60.0" prefHeight="30.0" prefWidth="200.0" />
+                              <Button fx:id="addDealer" layoutX="311.0" layoutY="249.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="149.0" style="-fx-background-color: #3083b3;" text="Add">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Button>
-                              <TextArea layoutX="185.0" layoutY="101.0" prefHeight="97.0" prefWidth="200.0" />
+                              <TextArea fx:id="dealerAddressTextArea" layoutX="185.0" layoutY="101.0" prefHeight="97.0" prefWidth="200.0" />
                            </children>
                         </Pane>
                         <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
@@ -169,7 +169,7 @@
                      <children>
                         <Pane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <Button layoutX="533.0" layoutY="279.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="159.0" style="-fx-background-color: #3083b3;" text="Add">
+                              <Button fx:id="addPurchase" layoutX="533.0" layoutY="279.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="159.0" style="-fx-background-color: #3083b3;" text="Add">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -190,11 +190,11 @@
                                  <font>
                                     <Font size="14.0" />
                                  </font></Label>
-                              <DatePicker layoutX="181.0" layoutY="18.0" />
-                              <TextField layoutX="181.0" layoutY="70.0" prefHeight="25.0" prefWidth="390.0" />
-                              <TextField layoutX="181.0" layoutY="156.0" prefHeight="25.0" prefWidth="390.0" />
+                              <DatePicker fx:id="purchaseDatePicker" layoutX="181.0" layoutY="18.0" />
+                              <TextField fx:id="medNameTextField" layoutX="181.0" layoutY="70.0" prefHeight="25.0" prefWidth="390.0" />
+                              <TextField fx:id="batNumTextField" layoutX="181.0" layoutY="156.0" prefHeight="25.0" prefWidth="390.0" />
                               <TextField layoutX="181.0" layoutY="110.0" prefHeight="25.0" prefWidth="390.0" />
-                              <TextField layoutX="181.0" layoutY="201.0" prefHeight="25.0" prefWidth="390.0" />
+                              <TextField fx:id="purRateTextField" layoutX="181.0" layoutY="201.0" prefHeight="25.0" prefWidth="390.0" />
                               <Label layoutX="713.0" layoutY="89.0" text="Quantity:">
                                  <font>
                                     <Font size="14.0" />
@@ -207,9 +207,9 @@
                                  <font>
                                     <Font size="14.0" />
                                  </font></Label>
-                              <DatePicker layoutX="779.0" layoutY="161.0" prefHeight="25.0" prefWidth="149.0" />
-                              <TextField layoutX="779.0" layoutY="123.0" />
-                              <TextField layoutX="779.0" layoutY="83.0" />
+                              <DatePicker fx:id="expiryDatePicker" layoutX="779.0" layoutY="161.0" prefHeight="25.0" prefWidth="149.0" />
+                              <TextField fx:id="sellingRateTextField" layoutX="779.0" layoutY="123.0" />
+                              <TextField fx:id="quantityTextField" layoutX="779.0" layoutY="83.0" />
                               <Label layoutX="142.0" layoutY="21.0" text="Date:">
                                  <font>
                                     <Font size="14.0" />
@@ -289,14 +289,14 @@
                                  <font>
                                     <Font size="14.0" />
                                  </font></Label>
-                              <Button layoutX="762.0" layoutY="94.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="84.0" text="Search">
+                              <Button fx:id="searchButton" layoutX="762.0" layoutY="94.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="84.0" text="Search">
                                  <font>
                                     <Font size="14.0" />
                                  </font></Button>
-                              <TextField layoutX="119.0" layoutY="94.0" prefHeight="30.0" prefWidth="185.0" promptText="Product Nmae" />
-                              <TextField layoutX="304.0" layoutY="94.0" prefHeight="30.0" prefWidth="159.0" promptText="Batch Number" />
-                              <TextField layoutX="463.0" layoutY="94.0" prefHeight="30.0" prefWidth="166.0" promptText="Qty less than/equal" />
-                              <DatePicker layoutX="629.0" layoutY="94.0" prefHeight="30.0" prefWidth="133.0" promptText="Expires on or before" />
+                              <TextField fx:id="productNameTextField" layoutX="119.0" layoutY="94.0" prefHeight="30.0" prefWidth="185.0" promptText="Product Nmae" />
+                              <TextField fx:id="batchNumTextField" layoutX="304.0" layoutY="94.0" prefHeight="30.0" prefWidth="159.0" promptText="Batch Number" />
+                              <TextField fx:id="quantityTextField" layoutX="463.0" layoutY="94.0" prefHeight="30.0" prefWidth="166.0" promptText="Qty less than/equal" />
+                              <DatePicker fx:id="expiry" layoutX="629.0" layoutY="94.0" prefHeight="30.0" prefWidth="133.0" promptText="Expires on or before" />
                            </children>
                         </Pane>
                         <TableView prefHeight="379.0" prefWidth="1021.0" GridPane.rowIndex="1">
