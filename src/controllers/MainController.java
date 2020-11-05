@@ -3,13 +3,16 @@ package controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
 import java.io.File;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable{
@@ -28,6 +31,27 @@ public class MainController implements Initializable{
     @FXML
     private GridPane customerGridPane;
     @FXML
+    private TextField txt_customerName;
+
+    @FXML
+    private TextField txt_customerContact;
+
+    @FXML
+    private TextArea txt_customerAddress;
+
+    @FXML
+    private TableView<Customers> table_customers;
+
+    @FXML
+    private TableColumn<Customers, String> col_customerName;
+
+    @FXML
+    private TableColumn<Customers, String> col_customerContact;
+
+    @FXML
+    private TableColumn<Customers, String> col_customerAddress;
+
+    @FXML
     private GridPane dealerGridPane;
     @FXML
     private GridPane purchaseGridPane;
@@ -39,9 +63,27 @@ public class MainController implements Initializable{
     @FXML
     private ImageView pharmacy_logo;
 
-//    @FXML
-//    private Button addCustomer;
+    @FXML
+    private Button addCustomersButton;
+    Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
 
+    public void addCustomers (ActionEvent event) {
+        DatabaseConnection connection = new DatabaseConnection();
+        conn = connection.getConnection();
+        String sql = "insert into customer_table (CustomerName, CustomerContact, CustomerAddress) values (?, ?, ?)";
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, txt_customerName.getText());
+            pst.setString(2, txt_customerContact.getText());
+            pst.setString(3, txt_customerAddress.getText());
+            pst.execute();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         // TODO Auto-generated method stub
@@ -127,4 +169,6 @@ public class MainController implements Initializable{
             inventoryButton.setStyle("-fx-background-color: #3083b3;");
         }
     }
+
+
 }

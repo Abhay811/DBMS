@@ -18,49 +18,37 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
    <VBox prefHeight="600.0" prefWidth="260.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
       <Pane prefHeight="130.0" prefWidth="260.0">
-         <ImageView fx:id="pharmacy_logo" fitHeight="119.0" fitWidth="164.0" layoutX="49.0" layoutY="6.0"
-                    pickOnBounds="true" preserveRatio="true">
-            <Image url="@../../../../../logo.jpg"/>
+         <ImageView fx:id="pharmacy_logo" fitHeight="119.0" fitWidth="164.0" layoutX="49.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../../../../logo.jpg" />
          </ImageView>
       </Pane>
       <Pane prefHeight="624.0" prefWidth="260.0">
-         <Button fx:id="customerButton" alignment="CENTER" graphicTextGap="15.0" layoutX="18.0" layoutY="14.0"
-                 mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="40.0" prefWidth="220.0"
-                 style="-fx-background-color: #3083b3;" stylesheets="@../css/fullpackstyling.css" text="Customer">
+         <Button fx:id="customerButton" alignment="CENTER" graphicTextGap="15.0" layoutX="18.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: #3083b3;" stylesheets="@../css/fullpackstyling.css" text="Customer">
             <font>
-               <Font name="Times New Roman Bold" size="18.0"/>
+               <Font name="Times New Roman Bold" size="18.0" />
             </font>
          </Button>
-         <Button fx:id="dealerButton" graphicTextGap="15.0" layoutX="18.0" layoutY="83.0" mnemonicParsing="false"
-                 onAction="#handleButtonClicks" prefHeight="40.0" prefWidth="220.0"
-                 style="-fx-background-color: #96d8e9;" stylesheets="" text="Dealer">
+         <Button fx:id="dealerButton" graphicTextGap="15.0" layoutX="18.0" layoutY="83.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: #96d8e9;" stylesheets="" text="Dealer">
             <font>
-               <Font name="Times New Roman Bold" size="18.0"/>
+               <Font name="Times New Roman Bold" size="18.0" />
             </font>
          </Button>
-         <Button fx:id="purchaseButton" graphicTextGap="15.0" layoutX="18.0" layoutY="152.0" mnemonicParsing="false"
-                 onAction="#handleButtonClicks" prefHeight="40.0" prefWidth="220.0"
-                 style="-fx-background-color: #96d8e9;" stylesheets="" text="Purchase">
+         <Button fx:id="purchaseButton" graphicTextGap="15.0" layoutX="18.0" layoutY="152.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: #96d8e9;" stylesheets="" text="Purchase">
             <font>
-               <Font name="Times New Roman Bold" size="18.0"/>
+               <Font name="Times New Roman Bold" size="18.0" />
             </font>
          </Button>
-         <Button fx:id="saleCounterButton" graphicTextGap="15.0" layoutX="18.0" layoutY="224.0"
-                 mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="40.0" prefWidth="220.0"
-                 style="-fx-background-color: #96d8e9;" stylesheets="" text="Sale Counter">
+         <Button fx:id="saleCounterButton" graphicTextGap="15.0" layoutX="18.0" layoutY="224.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: #96d8e9;" stylesheets="" text="Sale Counter">
             <font>
-               <Font name="Times New Roman Bold" size="18.0"/>
+               <Font name="Times New Roman Bold" size="18.0" />
             </font>
          </Button>
-         <Button fx:id="inventoryButton" graphicTextGap="15.0" layoutX="18.0" layoutY="294.0" mnemonicParsing="false"
-                 onAction="#handleButtonClicks" prefHeight="40.0" prefWidth="220.0"
-                 style="-fx-background-color: #96d8e9;" stylesheets="" text="Inventory">
+         <Button fx:id="inventoryButton" graphicTextGap="15.0" layoutX="18.0" layoutY="294.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: #96d8e9;" stylesheets="" text="Inventory">
             <font>
-               <Font name="Times New Roman Bold" size="18.0"/>
+               <Font name="Times New Roman Bold" size="18.0" />
             </font>
          </Button>
       </Pane>
@@ -68,7 +56,7 @@
    <Pane layoutX="260.0" prefHeight="130.0" prefWidth="1021.0">
       <Label layoutX="292.0" layoutY="40.0" text="Pharmacy Management ">
          <font>
-            <Font name="System Bold" size="36.0"/>
+            <Font name="System Bold" size="36.0" />
          </font>
       </Label>
    </Pane>
@@ -76,262 +64,238 @@
       <StackPane>
          <GridPane fx:id="customerGridPane" minHeight="-Infinity" prefHeight="611.0" prefWidth="1021.0">
             <columnConstraints>
-               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
-               <RowConstraints maxHeight="287.0" minHeight="10.0" prefHeight="287.0" vgrow="SOMETIMES"/>
-               <RowConstraints maxHeight="343.0" minHeight="10.0" prefHeight="324.0" vgrow="SOMETIMES"/>
+               <RowConstraints maxHeight="287.0" minHeight="10.0" prefHeight="287.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="343.0" minHeight="10.0" prefHeight="324.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <Label layoutX="76.0" layoutY="31.0" text="CustomerName:">
                   <font>
-                     <Font size="14.0"/>
+                     <Font size="14.0" />
                   </font>
                </Label>
                <Label layoutX="126.0" layoutY="69.0" text="Contact:">
                   <font>
-                     <Font size="14.0"/>
+                     <Font size="14.0" />
                   </font>
                </Label>
                <Label layoutX="125.0" layoutY="115.0" text="Address:">
                   <font>
-                     <Font size="14.0"/>
+                     <Font size="14.0" />
                   </font>
                </Label>
-               <TextField fx:id="customerNameTextField" layoutX="185.0" layoutY="26.0" prefHeight="30.0"
-                          prefWidth="200.0"/>
-               <TextField fx:id="customerContactTextField" layoutX="185.0" layoutY="60.0" prefHeight="30.0"
-                          prefWidth="200.0"/>
-               <Button fx:id="addCustomerButton" layoutX="339.0" layoutY="224.0" mnemonicParsing="false"
-                       prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #4ca0b5;"
-                       text="Add">
+               <TextField fx:id="txt_customerName" layoutX="185.0" layoutY="26.0" prefHeight="30.0" prefWidth="200.0" />
+               <TextField fx:id="txt_customerContact" layoutX="185.0" layoutY="60.0" prefHeight="30.0" prefWidth="200.0" />
+               <Button layoutX="339.0" layoutY="224.0" mnemonicParsing="false" onAction="#addCustomers" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #4ca0b5;" text="Add">
                   <font>
-                     <Font name="Tahoma" size="14.0"/>
+                     <Font name="Tahoma" size="14.0" />
                   </font>
                </Button>
-               <TextArea fx:id="customerAddressTextArea" layoutX="185.0" layoutY="108.0" prefHeight="67.0"
-                         prefWidth="200.0"/>
+               <TextArea fx:id="txt_customerAddress" layoutX="185.0" layoutY="108.0" prefHeight="67.0" prefWidth="200.0" />
             </Pane>
-            <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+            <TableView fx:id="table_customers" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <columns>
-                  <TableColumn prefWidth="110.0" text="CustomerName"/>
-                  <TableColumn prefWidth="110.0" text="CustomerContact"/>
-                  <TableColumn prefWidth="110.0" text="CustomerAddress"/>
+                  <TableColumn fx:id="col_customerName" prefWidth="110.0" text="CustomerName" />
+                  <TableColumn fx:id="col_customerContact" prefWidth="110.0" text="CustomerContact" />
+                  <TableColumn fx:id="col_customerAddress" prefWidth="110.0" text="CustomerAddress" />
                </columns>
             </TableView>
          </GridPane>
          <GridPane fx:id="dealerGridPane" prefHeight="611.0" prefWidth="1021.0" visible="false">
             <columnConstraints>
-               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
-               <RowConstraints maxHeight="299.0" minHeight="10.0" prefHeight="299.0" vgrow="SOMETIMES"/>
-               <RowConstraints maxHeight="343.0" minHeight="10.0" prefHeight="312.0" vgrow="SOMETIMES"/>
+               <RowConstraints maxHeight="299.0" minHeight="10.0" prefHeight="299.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="343.0" minHeight="10.0" prefHeight="312.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <Label layoutX="97.0" layoutY="31.0" text="DealerName:">
                   <font>
-                     <Font size="14.0"/>
+                     <Font size="14.0" />
                   </font>
                </Label>
                <Label layoutX="126.0" layoutY="65.0" text="Contact:">
                   <font>
-                     <Font size="14.0"/>
+                     <Font size="14.0" />
                   </font>
                </Label>
                <Label layoutX="125.0" layoutY="108.0" text="Address:">
                   <font>
-                     <Font size="14.0"/>
+                     <Font size="14.0" />
                   </font>
                </Label>
-               <TextField fx:id="dealerNameTextField" layoutX="185.0" layoutY="26.0" prefHeight="30.0"
-                          prefWidth="200.0"/>
-               <TextField fx:id="dealerContactTextField" layoutX="185.0" layoutY="60.0" prefHeight="30.0"
-                          prefWidth="200.0"/>
-               <Button fx:id="addDealer" layoutX="311.0" layoutY="249.0" mnemonicParsing="false"
-                       prefHeight="30.0" prefWidth="149.0" style="-fx-background-color: #3083b3;"
-                       text="Add">
+               <TextField fx:id="dealerNameTextField" layoutX="185.0" layoutY="26.0" prefHeight="30.0" prefWidth="200.0" />
+               <TextField fx:id="dealerContactTextField" layoutX="185.0" layoutY="60.0" prefHeight="30.0" prefWidth="200.0" />
+               <Button fx:id="addDealer" layoutX="311.0" layoutY="249.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="149.0" style="-fx-background-color: #3083b3;" text="Add">
                   <font>
-                     <Font size="14.0"/>
+                     <Font size="14.0" />
                   </font>
                </Button>
-               <TextArea fx:id="dealerAddressTextArea" layoutX="185.0" layoutY="101.0" prefHeight="97.0"
-                         prefWidth="200.0"/>
+               <TextArea fx:id="dealerAddressTextArea" layoutX="185.0" layoutY="101.0" prefHeight="97.0" prefWidth="200.0" />
             </Pane>
             <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <columns>
-                  <TableColumn prefWidth="110.0" text="DealerName"/>
-                  <TableColumn prefWidth="110.0" text="DealerContact"/>
-                  <TableColumn prefWidth="110.0" text="DealerAddress"/>
+                  <TableColumn prefWidth="110.0" text="DealerName" />
+                  <TableColumn prefWidth="110.0" text="DealerContact" />
+                  <TableColumn prefWidth="110.0" text="DealerAddress" />
                </columns>
             </TableView>
          </GridPane>
-         <GridPane fx:id="purchaseGridPane" layoutX="10.0" layoutY="10.0" prefHeight="611.0" prefWidth="1021.0"
-                   visible="false">
+         <GridPane fx:id="purchaseGridPane" layoutX="10.0" layoutY="10.0" prefHeight="611.0" prefWidth="1021.0" visible="false">
             <columnConstraints>
-               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
-               <RowConstraints maxHeight="343.0" minHeight="10.0" prefHeight="343.0" vgrow="SOMETIMES"/>
-               <RowConstraints maxHeight="343.0" minHeight="10.0" prefHeight="268.0" vgrow="SOMETIMES"/>
+               <RowConstraints maxHeight="343.0" minHeight="10.0" prefHeight="343.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="343.0" minHeight="10.0" prefHeight="268.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <Pane prefHeight="200.0" prefWidth="200.0">
-               <Button fx:id="addPurchase" layoutX="533.0" layoutY="279.0" mnemonicParsing="false"
-                       prefHeight="30.0" prefWidth="159.0" style="-fx-background-color: #3083b3;"
-                       text="Add">
+               <Button fx:id="addPurchase" layoutX="533.0" layoutY="279.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="159.0" style="-fx-background-color: #3083b3;" text="Add">
                   <font>
-                     <Font size="14.0"/>
+                     <Font size="14.0" />
                   </font>
                </Button>
                <Label layoutX="74.0" layoutY="73.0" text="Medicine Name:">
                   <font>
-                     <Font size="14.0"/>
+                     <Font size="14.0" />
                   </font>
                </Label>
                <Label layoutX="90.0" layoutY="113.0" text="Dealer Name:">
                   <font>
-                     <Font size="14.0"/>
+                     <Font size="14.0" />
                   </font>
                </Label>
                <Label layoutX="82.0" layoutY="159.0" text="Batch Number:">
                   <font>
-                     <Font size="14.0"/>
+                     <Font size="14.0" />
                   </font>
                </Label>
                <Label layoutX="84.0" layoutY="204.0" text="Purchase Rate:">
                   <font>
-                     <Font size="14.0"/>
+                     <Font size="14.0" />
                   </font>
                </Label>
-               <DatePicker fx:id="purchaseDatePicker" layoutX="181.0" layoutY="18.0"/>
-               <TextField fx:id="medNameTextField" layoutX="181.0" layoutY="70.0" prefHeight="25.0"
-                          prefWidth="390.0"/>
-               <TextField fx:id="batNumTextField" layoutX="181.0" layoutY="156.0" prefHeight="25.0"
-                          prefWidth="390.0"/>
-               <TextField layoutX="181.0" layoutY="110.0" prefHeight="25.0" prefWidth="390.0"/>
-               <TextField fx:id="purRateTextField" layoutX="181.0" layoutY="201.0" prefHeight="25.0"
-                          prefWidth="390.0"/>
+               <DatePicker fx:id="purchaseDatePicker" layoutX="181.0" layoutY="18.0" />
+               <TextField fx:id="medNameTextField" layoutX="181.0" layoutY="70.0" prefHeight="25.0" prefWidth="390.0" />
+               <TextField fx:id="batNumTextField" layoutX="181.0" layoutY="156.0" prefHeight="25.0" prefWidth="390.0" />
+               <TextField layoutX="181.0" layoutY="110.0" prefHeight="25.0" prefWidth="390.0" />
+               <TextField fx:id="purRateTextField" layoutX="181.0" layoutY="201.0" prefHeight="25.0" prefWidth="390.0" />
                <Label layoutX="713.0" layoutY="89.0" text="Quantity:">
                   <font>
-                     <Font size="14.0"/>
+                     <Font size="14.0" />
                   </font>
                </Label>
                <Label layoutX="693.0" layoutY="126.0" text="Selling Rate:">
                   <font>
-                     <Font size="14.0"/>
+                     <Font size="14.0" />
                   </font>
                </Label>
                <Label layoutX="729.0" layoutY="163.0" text="Expiry:">
                   <font>
-                     <Font size="14.0"/>
+                     <Font size="14.0" />
                   </font>
                </Label>
-               <DatePicker fx:id="expiryDatePicker" layoutX="779.0" layoutY="161.0" prefHeight="25.0"
-                           prefWidth="149.0"/>
-               <TextField fx:id="sellingRateTextField" layoutX="779.0" layoutY="123.0"/>
-               <TextField fx:id="quantityTextField" layoutX="779.0" layoutY="83.0"/>
+               <DatePicker fx:id="expiryDatePicker" layoutX="779.0" layoutY="161.0" prefHeight="25.0" prefWidth="149.0" />
+               <TextField fx:id="sellingRateTextField" layoutX="779.0" layoutY="123.0" />
+               <TextField fx:id="quantityTextField" layoutX="779.0" layoutY="83.0" />
                <Label layoutX="142.0" layoutY="21.0" text="Date:">
                   <font>
-                     <Font size="14.0"/>
+                     <Font size="14.0" />
                   </font>
                </Label>
             </Pane>
             <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <columns>
-                  <TableColumn prefWidth="110.0" text="MedicineName"/>
-                  <TableColumn prefWidth="110.0" text="DealerName"/>
-                  <TableColumn prefWidth="110.0" text="BatchNumber"/>
-                  <TableColumn prefWidth="110.0" text="Quantity"/>
-                  <TableColumn prefWidth="110.0" text="PurchaseDate"/>
-                  <TableColumn prefWidth="110.0" text="PurchaseRate"/>
-                  <TableColumn prefWidth="110.0" text="SellingRate"/>
-                  <TableColumn prefWidth="110.0" text="ExpiryDate"/>
+                  <TableColumn prefWidth="110.0" text="MedicineName" />
+                  <TableColumn prefWidth="110.0" text="DealerName" />
+                  <TableColumn prefWidth="110.0" text="BatchNumber" />
+                  <TableColumn prefWidth="110.0" text="Quantity" />
+                  <TableColumn prefWidth="110.0" text="PurchaseDate" />
+                  <TableColumn prefWidth="110.0" text="PurchaseRate" />
+                  <TableColumn prefWidth="110.0" text="SellingRate" />
+                  <TableColumn prefWidth="110.0" text="ExpiryDate" />
                </columns>
             </TableView>
          </GridPane>
-         <GridPane fx:id="saleCounterGridPane" layoutX="10.0" layoutY="10.0" prefHeight="611.0" prefWidth="1021.0"
-                   visible="false">
+         <GridPane fx:id="saleCounterGridPane" layoutX="10.0" layoutY="10.0" prefHeight="611.0" prefWidth="1021.0" visible="false">
             <columnConstraints>
-               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
-               <RowConstraints maxHeight="277.0" minHeight="10.0" prefHeight="222.0" vgrow="SOMETIMES"/>
-               <RowConstraints maxHeight="343.0" minHeight="10.0" prefHeight="343.0" vgrow="SOMETIMES"/>
+               <RowConstraints maxHeight="277.0" minHeight="10.0" prefHeight="222.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="343.0" minHeight="10.0" prefHeight="343.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <Pane prefHeight="200.0" prefWidth="200.0">
-               <DatePicker layoutX="147.0" layoutY="19.0"/>
-               <Label layoutX="109.0" layoutY="23.0" text="Date:"/>
-               <Label layoutX="48.0" layoutY="65.0" text="Customer Name:"/>
-               <TextField layoutX="147.0" layoutY="61.0"/>
+               <DatePicker layoutX="147.0" layoutY="19.0" />
+               <Label layoutX="109.0" layoutY="23.0" text="Date:" />
+               <Label layoutX="48.0" layoutY="65.0" text="Customer Name:" />
+               <TextField layoutX="147.0" layoutY="61.0" />
             </Pane>
             <TableView prefWidth="1021.0" GridPane.rowIndex="1">
                <columns>
-                  <TableColumn prefWidth="110.0" text="MedicineName"/>
-                  <TableColumn prefWidth="110.0" text="Batch"/>
-                  <TableColumn prefWidth="110.0" text="Quantity"/>
-                  <TableColumn prefWidth="110.0" text="Amount"/>
+                  <TableColumn prefWidth="110.0" text="MedicineName" />
+                  <TableColumn prefWidth="110.0" text="Batch" />
+                  <TableColumn prefWidth="110.0" text="Quantity" />
+                  <TableColumn prefWidth="110.0" text="Amount" />
                </columns>
             </TableView>
          </GridPane>
-         <GridPane fx:id="inventoryGridPane" layoutX="10.0" layoutY="10.0" prefHeight="611.0" prefWidth="1021.0"
-                   visible="false">
+         <GridPane fx:id="inventoryGridPane" layoutX="10.0" layoutY="10.0" prefHeight="611.0" prefWidth="1021.0" visible="false">
             <columnConstraints>
-               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
-               <RowConstraints maxHeight="277.0" minHeight="10.0" prefHeight="182.0" vgrow="SOMETIMES"/>
-               <RowConstraints maxHeight="438.0" minHeight="10.0" prefHeight="429.0" vgrow="SOMETIMES"/>
+               <RowConstraints maxHeight="277.0" minHeight="10.0" prefHeight="182.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="438.0" minHeight="10.0" prefHeight="429.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <Label layoutX="14.0" layoutY="14.0" text="Search Inventory:">
                   <font>
-                     <Font name="Georgia Bold Italic" size="14.0"/>
+                     <Font name="Georgia Bold Italic" size="14.0" />
                   </font>
                </Label>
                <Label layoutX="151.0" layoutY="73.0" text="Product Name">
                   <font>
-                     <Font size="14.0"/>
+                     <Font size="14.0" />
                   </font>
                </Label>
                <Label layoutX="471.0" layoutY="73.0" text="Qty less than/equal">
                   <font>
-                     <Font size="14.0"/>
+                     <Font size="14.0" />
                   </font>
                </Label>
                <Label layoutX="613.0" layoutY="73.0" text="Expires on or before">
                   <font>
-                     <Font size="14.0"/>
+                     <Font size="14.0" />
                   </font>
                </Label>
                <Label layoutX="334.0" layoutY="73.0" text="Batch">
                   <font>
-                     <Font size="14.0"/>
+                     <Font size="14.0" />
                   </font>
                </Label>
-               <Button fx:id="searchButton" layoutX="762.0" layoutY="94.0" mnemonicParsing="false"
-                       prefHeight="30.0" prefWidth="84.0" text="Search">
+               <Button fx:id="searchButton" layoutX="762.0" layoutY="94.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="84.0" text="Search">
                   <font>
-                     <Font size="14.0"/>
+                     <Font size="14.0" />
                   </font>
                </Button>
-               <TextField fx:id="productNameTextField" layoutX="119.0" layoutY="94.0" prefHeight="30.0"
-                          prefWidth="185.0" promptText="Product Nmae"/>
-               <TextField fx:id="batchNumTextField" layoutX="304.0" layoutY="94.0" prefHeight="30.0"
-                          prefWidth="159.0" promptText="Batch Number"/>
-               <TextField fx:id="quantityTextField" layoutX="463.0" layoutY="94.0" prefHeight="30.0"
-                          prefWidth="166.0" promptText="Qty less than/equal"/>
-               <DatePicker fx:id="expiry" layoutX="629.0" layoutY="94.0" prefHeight="30.0" prefWidth="133.0"
-                           promptText="Expires on or before"/>
+               <TextField fx:id="productNameTextField" layoutX="119.0" layoutY="94.0" prefHeight="30.0" prefWidth="185.0" promptText="Product Nmae" />
+               <TextField fx:id="batchNumTextField" layoutX="304.0" layoutY="94.0" prefHeight="30.0" prefWidth="159.0" promptText="Batch Number" />
+               <TextField fx:id="quantityTextField" layoutX="463.0" layoutY="94.0" prefHeight="30.0" prefWidth="166.0" promptText="Qty less than/equal" />
+               <DatePicker fx:id="expiry" layoutX="629.0" layoutY="94.0" prefHeight="30.0" prefWidth="133.0" promptText="Expires on or before" />
             </Pane>
             <TableView prefHeight="379.0" prefWidth="1021.0" GridPane.rowIndex="1">
                <columns>
-                  <TableColumn prefWidth="110.0" text="ProductName"/>
-                  <TableColumn prefWidth="110.0" text="BatchNumber"/>
-                  <TableColumn prefWidth="110.0" text="Quantity"/>
-                  <TableColumn prefWidth="110.0" text="PurchaseDate"/>
-                  <TableColumn prefWidth="110.0" text="PurchaseRate"/>
-                  <TableColumn prefWidth="110.0" text="SellingRate"/>
-                  <TableColumn prefWidth="110.0" text="ExpiryDate"/>
+                  <TableColumn prefWidth="110.0" text="ProductName" />
+                  <TableColumn prefWidth="110.0" text="BatchNumber" />
+                  <TableColumn prefWidth="110.0" text="Quantity" />
+                  <TableColumn prefWidth="110.0" text="PurchaseDate" />
+                  <TableColumn prefWidth="110.0" text="PurchaseRate" />
+                  <TableColumn prefWidth="110.0" text="SellingRate" />
+                  <TableColumn prefWidth="110.0" text="ExpiryDate" />
                </columns>
             </TableView>
          </GridPane>
