@@ -49,8 +49,22 @@ public class MainController implements Initializable{
 
     @FXML
     private GridPane dealerGridPane;
-
     @FXML
+    private TextField txt_dealerName;
+    @FXML
+    private TextField txt_dealerContact;
+    @FXML
+    private TextArea txt_dealerAddress;
+    @FXML
+    private TableView<Dealers> table_dealers;
+    @FXML
+    private TableColumn<Dealers, String> col_dealerName;
+    @FXML
+    private TableColumn<Dealers, String> col_dealerContact;
+    @FXML
+    private TableColumn<Dealers, String> col_dealerAddress;
+    @FXML
+
     private GridPane purchaseGridPane;
 
     @FXML
@@ -62,7 +76,8 @@ public class MainController implements Initializable{
     @FXML
     private ImageView pharmacy_logo;
 
-    ObservableList<Customers> listCust;
+    ObservableList<Customers> listCustomer;
+    ObservableList<Dealers> listDealers;
 
     int ind = -1;
     Connection conn = null;
@@ -83,6 +98,21 @@ public class MainController implements Initializable{
             e.printStackTrace();
         }
     }
+
+    public void addDealer() {
+        conn = DatabaseConnection.getConnection();
+        String sql = "insert into dealer_table (DealerName, DealerContact, DealerAddress) values (?, ?, ?)";
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, txt_dealerName.getText());
+            pst.setString(2, txt_dealerContact.getText());
+            pst.setString(3, txt_dealerAddress.getText());
+            pst.execute();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
@@ -94,8 +124,14 @@ public class MainController implements Initializable{
         col_customerContact.setCellValueFactory(new PropertyValueFactory<>("customerContact"));
         col_customerAddress.setCellValueFactory(new PropertyValueFactory<>("customerAddress"));
 
-        listCust = DatabaseConnection.getDataCustomers();
-        table_customers.setItems(listCust);
+        listCustomer = DatabaseConnection.getDataCustomers();
+        table_customers.setItems(listCustomer);
+
+        col_dealerName.setCellValueFactory(new PropertyValueFactory<>("DealerName"));
+        col_dealerContact.setCellValueFactory(new PropertyValueFactory<>("DealerContact"));
+        col_dealerAddress.setCellValueFactory(new PropertyValueFactory<>("DealerAddress"));
+        listDealers = DatabaseConnection.getDataDealers();
+        table_dealers.setItems(listDealers);
     }
 
     @FXML

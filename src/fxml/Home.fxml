@@ -97,9 +97,9 @@
             </Pane>
             <TableView fx:id="table_customers" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <columns>
-                  <TableColumn fx:id="col_customerName" prefWidth="110.0" text="CustomerName" />
-                  <TableColumn fx:id="col_customerContact" prefWidth="110.0" text="CustomerContact" />
-                  <TableColumn fx:id="col_customerAddress" prefWidth="110.0" text="CustomerAddress" />
+                  <TableColumn fx:id="col_customerName" prefWidth="120.0" text="CustomerName" />
+                  <TableColumn fx:id="col_customerContact" prefWidth="120.0" text="CustomerContact" />
+                  <TableColumn fx:id="col_customerAddress" prefWidth="120.0" text="CustomerAddress" />
                </columns>
             </TableView>
          </GridPane>
@@ -127,20 +127,20 @@
                      <Font size="14.0" />
                   </font>
                </Label>
-               <TextField fx:id="dealerNameTextField" layoutX="185.0" layoutY="26.0" prefHeight="30.0" prefWidth="200.0" />
-               <TextField fx:id="dealerContactTextField" layoutX="185.0" layoutY="60.0" prefHeight="30.0" prefWidth="200.0" />
-               <Button fx:id="addDealer" layoutX="311.0" layoutY="249.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="149.0" style="-fx-background-color: #3083b3;" text="Add">
+               <TextField fx:id="txt_dealerName" layoutX="185.0" layoutY="26.0" prefHeight="30.0" prefWidth="200.0" />
+               <TextField fx:id="txt_dealerContact" layoutX="185.0" layoutY="60.0" prefHeight="30.0" prefWidth="200.0" />
+               <Button layoutX="311.0" layoutY="249.0" mnemonicParsing="false" onAction="#addDealer" prefHeight="30.0" prefWidth="149.0" style="-fx-background-color: #3083b3;" text="Add">
                   <font>
                      <Font size="14.0" />
                   </font>
                </Button>
-               <TextArea fx:id="dealerAddressTextArea" layoutX="185.0" layoutY="101.0" prefHeight="97.0" prefWidth="200.0" />
+               <TextArea fx:id="txt_dealerAddress" layoutX="185.0" layoutY="101.0" prefHeight="97.0" prefWidth="200.0" />
             </Pane>
-            <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+            <TableView fx:id="table_dealers" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <columns>
-                  <TableColumn prefWidth="110.0" text="DealerName" />
-                  <TableColumn prefWidth="110.0" text="DealerContact" />
-                  <TableColumn prefWidth="110.0" text="DealerAddress" />
+                  <TableColumn fx:id="col_dealerName" prefWidth="110.0" text="DealerName" />
+                  <TableColumn fx:id="col_dealerContact" prefWidth="110.0" text="DealerContact" />
+                  <TableColumn fx:id="col_dealerAddress" prefWidth="110.0" text="DealerAddress" />
                </columns>
             </TableView>
          </GridPane>

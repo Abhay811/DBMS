@@ -46,4 +46,21 @@ public class DatabaseConnection {
         }
         return list;
     }
+
+    public static ObservableList<Dealers> getDataDealers() {
+        Connection conn = getConnection();
+        ObservableList<Dealers> list = FXCollections.observableArrayList();
+
+        try {
+            PreparedStatement ps = conn.prepareStatement("Select * from dealer_table");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                list.add(new Dealers(Integer.parseInt(rs.getString("id")),rs.getString("dealerName"), rs.getString("dealerContact"), rs.getString("dealerAddress")));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 }
