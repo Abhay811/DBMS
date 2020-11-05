@@ -62,7 +62,7 @@
    </Pane>
    <VBox layoutX="260.0" layoutY="136.0" prefHeight="610.0" prefWidth="1021.0">
       <StackPane>
-         <GridPane fx:id="customerGridPane" minHeight="-Infinity" prefHeight="611.0" prefWidth="1021.0">
+         <GridPane fx:id="customerGridPane" minHeight="-Infinity" prefHeight="611.0" prefWidth="1021.0" visible="false">
             <columnConstraints>
                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
@@ -144,7 +144,7 @@
                </columns>
             </TableView>
          </GridPane>
-         <GridPane fx:id="purchaseGridPane" layoutX="10.0" layoutY="10.0" prefHeight="611.0" prefWidth="1021.0" visible="false">
+         <GridPane fx:id="purchaseGridPane" layoutX="10.0" layoutY="10.0" prefHeight="611.0" prefWidth="1021.0">
             <columnConstraints>
                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
@@ -153,7 +153,7 @@
                <RowConstraints maxHeight="343.0" minHeight="10.0" prefHeight="268.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <Pane prefHeight="200.0" prefWidth="200.0">
-               <Button fx:id="addPurchase" layoutX="533.0" layoutY="279.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="159.0" style="-fx-background-color: #3083b3;" text="Add">
+               <Button layoutX="533.0" layoutY="279.0" mnemonicParsing="false" onAction="#addPurchase" prefHeight="30.0" prefWidth="159.0" style="-fx-background-color: #3083b3;" text="Add">
                   <font>
                      <Font size="14.0" />
                   </font>
@@ -178,11 +178,11 @@
                      <Font size="14.0" />
                   </font>
                </Label>
-               <DatePicker fx:id="purchaseDatePicker" layoutX="181.0" layoutY="18.0" />
-               <TextField fx:id="medNameTextField" layoutX="181.0" layoutY="70.0" prefHeight="25.0" prefWidth="390.0" />
-               <TextField fx:id="batNumTextField" layoutX="181.0" layoutY="156.0" prefHeight="25.0" prefWidth="390.0" />
-               <TextField layoutX="181.0" layoutY="110.0" prefHeight="25.0" prefWidth="390.0" />
-               <TextField fx:id="purRateTextField" layoutX="181.0" layoutY="201.0" prefHeight="25.0" prefWidth="390.0" />
+               <DatePicker fx:id="txt_purchaseDate" layoutX="181.0" layoutY="18.0" />
+               <TextField fx:id="txt_medicineName" layoutX="181.0" layoutY="70.0" prefHeight="25.0" prefWidth="390.0" />
+               <TextField fx:id="txt_batchNumber" layoutX="181.0" layoutY="156.0" prefHeight="25.0" prefWidth="390.0" />
+               <TextField fx:id="txt_dealerName" layoutX="181.0" layoutY="110.0" prefHeight="25.0" prefWidth="390.0" />
+               <TextField fx:id="txt_purchaseRate" layoutX="181.0" layoutY="201.0" prefHeight="25.0" prefWidth="390.0" />
                <Label layoutX="713.0" layoutY="89.0" text="Quantity:">
                   <font>
                      <Font size="14.0" />
@@ -198,25 +198,25 @@
                      <Font size="14.0" />
                   </font>
                </Label>
-               <DatePicker fx:id="expiryDatePicker" layoutX="779.0" layoutY="161.0" prefHeight="25.0" prefWidth="149.0" />
-               <TextField fx:id="sellingRateTextField" layoutX="779.0" layoutY="123.0" />
-               <TextField fx:id="quantityTextField" layoutX="779.0" layoutY="83.0" />
+               <DatePicker fx:id="txt_expiryDate" layoutX="779.0" layoutY="161.0" prefHeight="25.0" prefWidth="149.0" />
+               <TextField fx:id="txt_sellingRate" layoutX="779.0" layoutY="123.0" />
+               <TextField fx:id="txt_quantity" layoutX="779.0" layoutY="83.0" />
                <Label layoutX="142.0" layoutY="21.0" text="Date:">
                   <font>
                      <Font size="14.0" />
                   </font>
                </Label>
             </Pane>
-            <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+            <TableView fx:id="table_purchases" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <columns>
-                  <TableColumn prefWidth="110.0" text="MedicineName" />
-                  <TableColumn prefWidth="110.0" text="DealerName" />
-                  <TableColumn prefWidth="110.0" text="BatchNumber" />
-                  <TableColumn prefWidth="110.0" text="Quantity" />
-                  <TableColumn prefWidth="110.0" text="PurchaseDate" />
-                  <TableColumn prefWidth="110.0" text="PurchaseRate" />
-                  <TableColumn prefWidth="110.0" text="SellingRate" />
-                  <TableColumn prefWidth="110.0" text="ExpiryDate" />
+                  <TableColumn fx:id="col_medicineName" prefWidth="110.0" text="MedicineName" />
+                  <TableColumn fx:id="col_dealerName" prefWidth="110.0" text="DealerName" />
+                  <TableColumn fx:id="col_batchNumber" prefWidth="110.0" text="BatchNumber" />
+                  <TableColumn fx:id="col_quantity" prefWidth="110.0" text="Quantity" />
+                  <TableColumn fx:id="col_purchaseDate" prefWidth="110.0" text="PurchaseDate" />
+                  <TableColumn fx:id="col_purchaseRate" prefWidth="110.0" text="PurchaseRate" />
+                  <TableColumn fx:id="col_sellingRate" prefWidth="110.0" text="SellingRate" />
+                  <TableColumn fx:id="col_expiryDate" prefWidth="110.0" text="ExpiryDate" />
                </columns>
             </TableView>
          </GridPane>

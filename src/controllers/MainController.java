@@ -63,9 +63,39 @@ public class MainController implements Initializable{
     private TableColumn<Dealers, String> col_dealerContact;
     @FXML
     private TableColumn<Dealers, String> col_dealerAddress;
-    @FXML
 
+    @FXML
     private GridPane purchaseGridPane;
+    @FXML
+    private DatePicker txt_purchaseDate;
+    @FXML
+    private TextField txt_medicineName;
+    @FXML
+    private TextField txt_batchNumber;
+    @FXML
+    private TextField txt_purchaseRate;
+    @FXML
+    private DatePicker txt_expiryDate;
+    @FXML
+    private TextField txt_sellingRate;
+    @FXML
+    private TextField txt_quantity;
+    @FXML
+    private TableView<Purchases> table_purchases;
+    @FXML
+    private TableColumn<Purchases, String> col_medicineName;
+    @FXML
+    private TableColumn<Purchases, String> col_batchNumber;
+    @FXML
+    private TableColumn<Purchases, String> col_quantity;
+    @FXML
+    private TableColumn<Purchases, String> col_purchaseDate;
+    @FXML
+    private TableColumn<Purchases, String> col_purchaseRate;
+    @FXML
+    private TableColumn<Purchases, String> col_sellingRate;
+    @FXML
+    private TableColumn<Purchases, String> col_expiryDate;
 
     @FXML
     private GridPane saleCounterGridPane;
@@ -78,7 +108,7 @@ public class MainController implements Initializable{
 
     ObservableList<Customers> listCustomer;
     ObservableList<Dealers> listDealers;
-
+    ObservableList<Purchases> listPurchases;
     int ind = -1;
     Connection conn = null;
     ResultSet rs = null;
@@ -86,7 +116,8 @@ public class MainController implements Initializable{
 
     public void addCustomers () {
         conn = DatabaseConnection.getConnection();
-        String sql = "insert into customer_table (CustomerName, CustomerContact, CustomerAddress) values (?, ?, ?)";
+        String sql = "insert into customer_table (CustomerName, CustomerContact," +
+                     " CustomerAddress) values (?, ?, ?)";
         try {
             pst = conn.prepareStatement(sql);
             pst.setString(1, txt_customerName.getText());
@@ -101,12 +132,36 @@ public class MainController implements Initializable{
 
     public void addDealer() {
         conn = DatabaseConnection.getConnection();
-        String sql = "insert into dealer_table (DealerName, DealerContact, DealerAddress) values (?, ?, ?)";
+        String sql = "insert into dealer_table (DealerName, DealerContact, " +
+                     "DealerAddress) values (?, ?, ?)";
         try {
             pst = conn.prepareStatement(sql);
             pst.setString(1, txt_dealerName.getText());
             pst.setString(2, txt_dealerContact.getText());
             pst.setString(3, txt_dealerAddress.getText());
+            pst.execute();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void addPurchase() {
+        conn = DatabaseConnection.getConnection();
+        String sql = "insert into purchasetable (MedicineName, DealerName, " +
+                     "BatchNumber, Quantity, PurchaseDate, PurchaseRate, " +
+                     "SellingRate, ExpiryDate) values (?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, txt_medicineName.getText());
+            pst.setString(2, txt_dealerName.getText());
+            pst.setString(3, txt_batchNumber.getText());
+            pst.setString(4, txt_quantity.getText());
+//            pst.setString(5, txt_purchaseDate.getText());
+            pst.setString(6, txt_purchaseRate.getText());
+            pst.setString(7, txt_sellingRate.getText());
+//            pst.setString(8, txt_expiryDate.getText());
             pst.execute();
 
         } catch (Exception e) {
@@ -123,7 +178,6 @@ public class MainController implements Initializable{
         col_customerName.setCellValueFactory(new PropertyValueFactory<>("customerName"));
         col_customerContact.setCellValueFactory(new PropertyValueFactory<>("customerContact"));
         col_customerAddress.setCellValueFactory(new PropertyValueFactory<>("customerAddress"));
-
         listCustomer = DatabaseConnection.getDataCustomers();
         table_customers.setItems(listCustomer);
 
@@ -132,6 +186,18 @@ public class MainController implements Initializable{
         col_dealerAddress.setCellValueFactory(new PropertyValueFactory<>("DealerAddress"));
         listDealers = DatabaseConnection.getDataDealers();
         table_dealers.setItems(listDealers);
+
+        col_medicineName.setCellValueFactory(new PropertyValueFactory<>("MedicineName"));
+        col_dealerName.setCellValueFactory(new PropertyValueFactory<>("DealerName"));
+        col_batchNumber.setCellValueFactory(new PropertyValueFactory<>("BatchNumber"));
+        col_quantity.setCellValueFactory(new PropertyValueFactory<>("Quantity"));
+        col_purchaseDate.setCellValueFactory(new PropertyValueFactory<>("PurchaseDate"));
+        col_purchaseRate.setCellValueFactory(new PropertyValueFactory<>("PurchaseRate"));
+        col_sellingRate.setCellValueFactory(new PropertyValueFactory<>("SellingRate"));
+        col_expiryDate.setCellValueFactory(new PropertyValueFactory<>("ExpiryDate"));
+        listPurchases = DatabaseConnection.getDataPurchases();
+        table_purchases.setItems(listPurchases);
+
     }
 
     @FXML
