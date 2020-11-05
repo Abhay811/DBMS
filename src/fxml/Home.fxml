@@ -144,7 +144,7 @@
                </columns>
             </TableView>
          </GridPane>
-         <GridPane fx:id="purchaseGridPane" layoutX="10.0" layoutY="10.0" prefHeight="611.0" prefWidth="1021.0">
+         <GridPane fx:id="purchaseGridPane" layoutX="10.0" layoutY="10.0" prefHeight="611.0" prefWidth="1021.0" visible="false">
             <columnConstraints>
                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
@@ -243,7 +243,7 @@
                </columns>
             </TableView>
          </GridPane>
-         <GridPane fx:id="inventoryGridPane" layoutX="10.0" layoutY="10.0" prefHeight="611.0" prefWidth="1021.0" visible="false">
+         <GridPane fx:id="inventoryGridPane" layoutX="10.0" layoutY="10.0" prefHeight="611.0" prefWidth="1021.0">
             <columnConstraints>
                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
@@ -267,7 +267,7 @@
                      <Font size="14.0" />
                   </font>
                </Label>
-               <Label layoutX="613.0" layoutY="73.0" text="Expires on or before">
+               <Label layoutX="631.0" layoutY="72.0" text="Expires on or before">
                   <font>
                      <Font size="14.0" />
                   </font>
@@ -277,25 +277,25 @@
                      <Font size="14.0" />
                   </font>
                </Label>
-               <Button fx:id="searchButton" layoutX="762.0" layoutY="94.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="84.0" text="Search">
+               <Button layoutX="762.0" layoutY="94.0" mnemonicParsing="false" onAction="#searchButton" prefHeight="30.0" prefWidth="84.0" text="Search">
                   <font>
                      <Font size="14.0" />
                   </font>
                </Button>
-               <TextField fx:id="productNameTextField" layoutX="119.0" layoutY="94.0" prefHeight="30.0" prefWidth="185.0" promptText="Product Nmae" />
-               <TextField fx:id="batchNumTextField" layoutX="304.0" layoutY="94.0" prefHeight="30.0" prefWidth="159.0" promptText="Batch Number" />
-               <TextField fx:id="quantityTextField" layoutX="463.0" layoutY="94.0" prefHeight="30.0" prefWidth="166.0" promptText="Qty less than/equal" />
-               <DatePicker fx:id="expiry" layoutX="629.0" layoutY="94.0" prefHeight="30.0" prefWidth="133.0" promptText="Expires on or before" />
+               <TextField fx:id="txt_productName" layoutX="119.0" layoutY="94.0" prefHeight="30.0" prefWidth="185.0" promptText="Product Name" />
+               <TextField fx:id="txt_batchNumber" layoutX="304.0" layoutY="94.0" prefHeight="30.0" prefWidth="159.0" promptText="Batch Number" />
+               <TextField fx:id="txt_quantitiylLessEqual" layoutX="463.0" layoutY="94.0" prefHeight="30.0" prefWidth="166.0" promptText="Qty less than/equal" />
+               <DatePicker fx:id="txt_expiresOrBefore" layoutX="629.0" layoutY="94.0" prefHeight="30.0" prefWidth="133.0" promptText="Expires on or before" />
             </Pane>
-            <TableView prefHeight="379.0" prefWidth="1021.0" GridPane.rowIndex="1">
+            <TableView fx:id="table_inventory" prefHeight="379.0" prefWidth="1021.0" GridPane.rowIndex="1">
                <columns>
-                  <TableColumn prefWidth="110.0" text="ProductName" />
-                  <TableColumn prefWidth="110.0" text="BatchNumber" />
-                  <TableColumn prefWidth="110.0" text="Quantity" />
-                  <TableColumn prefWidth="110.0" text="PurchaseDate" />
-                  <TableColumn prefWidth="110.0" text="PurchaseRate" />
-                  <TableColumn prefWidth="110.0" text="SellingRate" />
-                  <TableColumn prefWidth="110.0" text="ExpiryDate" />
+                  <TableColumn fx:id="col_productName" prefWidth="110.0" text="ProductName" />
+                  <TableColumn fx:id="col_batNumber" prefWidth="110.0" text="BatchNumber" />
+                  <TableColumn fx:id="col_quant" prefWidth="110.0" text="Quantity" />
+                  <TableColumn fx:id="col_purDate" prefWidth="110.0" text="PurchaseDate" />
+                  <TableColumn fx:id="col_purRate" prefWidth="110.0" text="PurchaseRate" />
+                  <TableColumn fx:id="col_selRate" prefWidth="110.0" text="SellingRate" />
+                  <TableColumn fx:id="col_expDate" prefWidth="110.0" text="ExpiryDate" />
                </columns>
             </TableView>
          </GridPane>

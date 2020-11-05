@@ -88,4 +88,25 @@ public class DatabaseConnection {
         }
         return list;
     }
+
+    public static ObservableList<Inventory> getDataInventories() {
+        Connection conn = getConnection();
+        ObservableList<Inventory> list = FXCollections.observableArrayList();
+
+        try {
+            PreparedStatement ps = conn.prepareStatement("Select * from inventorytable");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                list.add(new Inventory(Integer.parseInt(rs.getString("id")),
+                        rs.getString("productName"), rs.getString("batchNumber"),
+                        Integer.parseInt(rs.getString("quantity")),
+                        rs.getString("purchaseDate"), rs.getString("purchaseRate"),
+                        rs.getString("sellingRate"), rs.getString("expiryDate")));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 }

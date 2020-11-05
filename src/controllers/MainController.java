@@ -102,6 +102,29 @@ public class MainController implements Initializable{
 
     @FXML
     private GridPane inventoryGridPane;
+    @FXML
+    private TextField txt_productName;
+    @FXML
+    private TextField txt_quantitiylLessEqual;
+    @FXML
+    private DatePicker txt_expiresOrBefore;
+    @FXML
+    private TableView<Inventory> table_inventory;
+    @FXML
+    private TableColumn<Inventory, String> col_productName;
+    @FXML
+    private TableColumn<Inventory, String> col_batNumber;
+    @FXML
+    private TableColumn<Inventory, Integer> col_quant;
+    @FXML
+    private TableColumn<Inventory, String> col_purDate;
+    @FXML
+    private TableColumn<Inventory, String> col_purRate;
+    @FXML
+    private TableColumn<Inventory, String> col_selRate;
+    @FXML
+    private TableColumn<Inventory, String> col_expDate;
+
 
     @FXML
     private ImageView pharmacy_logo;
@@ -167,6 +190,10 @@ public class MainController implements Initializable{
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void searchButton(ActionEvent event) {
+
     }
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -276,6 +303,5 @@ public class MainController implements Initializable{
             inventoryButton.setStyle("-fx-background-color: #3083b3;");
         }
     }
-
 
 }
