@@ -2,9 +2,18 @@ package controllers;
 
 public class Customers  {
 
+    int id;
     String customerName;
     String customerContact;
     String customerAddress;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getCustomerName() {
         return customerName;
@@ -30,7 +39,8 @@ public class Customers  {
         this.customerAddress = customerAddress;
     }
 
-    public Customers(String customerName, String customerContact, String customerAddress) {
+    public Customers(int id, String customerName, String customerContact, String customerAddress) {
+        this.id = id;
         this.customerName = customerName;
         this.customerContact = customerContact;
         this.customerAddress = customerAddress;

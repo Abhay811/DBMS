@@ -1,9 +1,11 @@
 package controllers;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -32,46 +34,43 @@ public class MainController implements Initializable{
     private GridPane customerGridPane;
     @FXML
     private TextField txt_customerName;
-
     @FXML
     private TextField txt_customerContact;
-
     @FXML
     private TextArea txt_customerAddress;
-
     @FXML
     private TableView<Customers> table_customers;
-
     @FXML
     private TableColumn<Customers, String> col_customerName;
-
     @FXML
     private TableColumn<Customers, String> col_customerContact;
-
     @FXML
     private TableColumn<Customers, String> col_customerAddress;
 
     @FXML
     private GridPane dealerGridPane;
+
     @FXML
     private GridPane purchaseGridPane;
+
     @FXML
     private GridPane saleCounterGridPane;
+
     @FXML
     private GridPane inventoryGridPane;
 
     @FXML
     private ImageView pharmacy_logo;
 
-    @FXML
-    private Button addCustomersButton;
+    ObservableList<Customers> listCust;
+
+    int ind = -1;
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
 
-    public void addCustomers (ActionEvent event) {
-        DatabaseConnection connection = new DatabaseConnection();
-        conn = connection.getConnection();
+    public void addCustomers () {
+        conn = DatabaseConnection.getConnection();
         String sql = "insert into customer_table (CustomerName, CustomerContact, CustomerAddress) values (?, ?, ?)";
         try {
             pst = conn.prepareStatement(sql);
@@ -86,11 +85,17 @@ public class MainController implements Initializable{
     }
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        // TODO Auto-generated method stub
 
         File logoFile = new File("Img/logo_pharmacy.jpg");
         Image logoImage = new Image(logoFile.toURI().toString());
         pharmacy_logo.setImage(logoImage);
+
+        col_customerName.setCellValueFactory(new PropertyValueFactory<>("customerName"));
+        col_customerContact.setCellValueFactory(new PropertyValueFactory<>("customerContact"));
+        col_customerAddress.setCellValueFactory(new PropertyValueFactory<>("customerAddress"));
+
+        listCust = DatabaseConnection.getDataCustomers();
+        table_customers.setItems(listCust);
     }
 
     @FXML
