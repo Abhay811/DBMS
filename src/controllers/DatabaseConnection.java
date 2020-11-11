@@ -39,7 +39,7 @@ public class DatabaseConnection {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                list.add(new Customers(Integer.parseInt(rs.getString("id")),
+                list.add(new Customers(Integer.parseInt(rs.getString("customerId")),
                         rs.getString("customerName"), rs.getString("customerContact"),
                         rs.getString("customerAddress")));
             }
@@ -58,7 +58,7 @@ public class DatabaseConnection {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                list.add(new Dealers(Integer.parseInt(rs.getString("id")),
+                list.add(new Dealers(Integer.parseInt(rs.getString("dealerId")),
                         rs.getString("dealerName"), rs.getString("dealerContact"),
                         rs.getString("dealerAddress")));
             }

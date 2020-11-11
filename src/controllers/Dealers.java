@@ -1,47 +1,47 @@
 package controllers;
 
 public class Dealers  {
-    int id;
+    int dealerId;
     String dealerName;
     String dealerContact;
     String dealerAddress;
 
-    public int getId() {
-        return id;
+    public Dealers(int dealerId, String dealerName, String dealerContact, String dealerAddress) {
+        this.dealerId = dealerId;
+        this.dealerName = dealerName;
+        this.dealerContact = dealerContact;
+        this.dealerAddress = dealerAddress;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getDealerId() {
+        return dealerId;
     }
 
     public String getDealerName() {
         return dealerName;
     }
 
-    public void setDealerName(String dealerName) {
-        this.dealerName = dealerName;
-    }
-
     public String getDealerContact() {
         return dealerContact;
-    }
-
-    public void setDealerContact(String dealerContact) {
-        this.dealerContact = dealerContact;
     }
 
     public String getDealerAddress() {
         return dealerAddress;
     }
 
-    public void setDealerAddress(String dealerAddress) {
-        this.dealerAddress = dealerAddress;
+    public void setDealerId(int dealerId) {
+        this.dealerId = dealerId;
     }
 
-    public Dealers(int id, String dealerName, String dealerContact, String dealerAddress) {
-        this.id = id;
+    public void setDealerName(String dealerName) {
         this.dealerName = dealerName;
+    }
+
+    public void setDealerContact(String dealerContact) {
         this.dealerContact = dealerContact;
+    }
+
+    public void setDealerAddress(String dealerAddress) {
         this.dealerAddress = dealerAddress;
     }
 }

@@ -2,47 +2,48 @@ package controllers;
 
 public class Customers  {
 
-    int id;
+    int customerId;
     String customerName;
     String customerContact;
     String customerAddress;
 
-    public int getId() {
-        return id;
+    public Customers(int customerId, String customerName,
+                     String customerContact, String customerAddress) {
+        this.customerId = customerId;
+        this.customerName = customerName;
+        this.customerContact = customerContact;
+        this.customerAddress = customerAddress;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getCustomerId() {
+        return customerId;
     }
 
     public String getCustomerName() {
         return customerName;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-
     public String getCustomerContact() {
         return customerContact;
-    }
-
-    public void setCustomerContact(String customerContact) {
-        this.customerContact = customerContact;
     }
 
     public String getCustomerAddress() {
         return customerAddress;
     }
 
-    public void setCustomerAddress(String customerAddress) {
-        this.customerAddress = customerAddress;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
-    public Customers(int id, String customerName, String customerContact, String customerAddress) {
-        this.id = id;
+    public void setCustomerName(String customerName) {
         this.customerName = customerName;
+    }
+
+    public void setCustomerContact(String customerContact) {
         this.customerContact = customerContact;
+    }
+
+    public void setCustomerAddress(String customerAddress) {
         this.customerAddress = customerAddress;
     }
 }
