@@ -1,5 +1,6 @@
 package controllers;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
 import java.io.File;
@@ -15,6 +17,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable{
@@ -75,11 +78,15 @@ public class MainController implements Initializable{
     @FXML
     private GridPane purchaseGridPane;
     @FXML
+    private TextField txt_purchaseId;
+    @FXML
     private DatePicker txt_purchaseDate;
     @FXML
     private TextField txt_medicineName;
     @FXML
     private TextField txt_batchNumber;
+    @FXML
+    private TextField txt_drName;
     @FXML
     private TextField txt_purchaseRate;
     @FXML
@@ -91,7 +98,11 @@ public class MainController implements Initializable{
     @FXML
     private TableView<Purchases> table_purchases;
     @FXML
+    private TableColumn<Purchases, Integer> col_purchaseId;
+    @FXML
     private TableColumn<Purchases, String> col_medicineName;
+    @FXML
+    private TableColumn<Purchases, String> col_drName;
     @FXML
     private TableColumn<Purchases, String> col_batchNumber;
     @FXML
@@ -107,6 +118,32 @@ public class MainController implements Initializable{
 
     @FXML
     private GridPane saleCounterGridPane;
+    @FXML
+    private DatePicker txt_dateSale;
+    @FXML
+    private TextField txt_cusName;
+    @FXML
+    private TextField txt_prName;
+    @FXML
+    private TextField txt_qt;
+    @FXML
+    private TextField txt_exDate;
+    @FXML
+    private TextField txt_rate;
+    @FXML
+    private TextField txt_amount;
+    @FXML
+    private ComboBox<String> comboBox;
+    @FXML
+    private TableView<SaleCounter> table_sales;
+    @FXML
+    private TableColumn<SaleCounter, String> col_medName;
+    @FXML
+    private TableColumn<SaleCounter, String> col_batch;
+    @FXML
+    private TableColumn<SaleCounter, String> col_qt;
+    @FXML
+    private TableColumn<SaleCounter, String> col_amount;
 
     @FXML
     private GridPane inventoryGridPane;
@@ -140,11 +177,14 @@ public class MainController implements Initializable{
     ObservableList<Customers> listCustomer;
     ObservableList<Dealers> listDealers;
     ObservableList<Purchases> listPurchases;
+    ObservableList<SaleCounter> listSales;
+    ObservableList<String> list = FXCollections.observableArrayList();
+
     int ind = -1;
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
-
+    String cvalue = null;
     public void addCustomers () {
         conn = DatabaseConnection.getConnection();
         String sql = "insert into customer_table (CustomerId, CustomerName, CustomerContact," +
@@ -174,7 +214,6 @@ public class MainController implements Initializable{
         txt_customerContact.setText(col_customerContact.getCellData(ind));
         txt_customerAddress.setText(col_customerAddress.getCellData(ind));
     }
-
     public void updateCustomers () {
         try {
             conn = DatabaseConnection.getConnection();
@@ -188,12 +227,12 @@ public class MainController implements Initializable{
                     " customerAddress = '" + val4 + "' where customerId = '" + val1 + "' ";
             pst = conn.prepareStatement(sql);
             pst.execute();
+
             updateTableCustomers();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
     public void deleteCustomers() {
         conn = DatabaseConnection.getConnection();
         String sql = "delete from customer_table where customerId = ?";
@@ -219,13 +258,12 @@ public class MainController implements Initializable{
             pst.setString(3, txt_dealerContact.getText());
             pst.setString(4, txt_dealerAddress.getText());
             pst.execute();
-            System.out.println(txt_dealerName.getText());
+//            System.out.println(txt_dealerName.getText());
             updateTableDealers();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
     @FXML
     public void getSelectedDealers (javafx.scene.input.MouseEvent event) {
         ind = table_dealers.getSelectionModel().getSelectedIndex();
@@ -269,25 +307,84 @@ public class MainController implements Initializable{
             e.printStackTrace();
         }
     }
+
+    public String purchaseDate() {
+        LocalDate ld = txt_purchaseDate.getValue();
+        return String.valueOf(ld);
+    }
+    public String expiryDate() {
+        LocalDate ld = txt_expiryDate.getValue();
+        return String.valueOf(ld);
+    }
+    public void comboChanged(ActionEvent event) {
+        cvalue = comboBox.getValue();
+    }
     public void addPurchase() {
         conn = DatabaseConnection.getConnection();
-        String sql = "insert into purchasetable (MedicineName, DealerName, " +
+        String sql = "insert into purchase_table (MedicineName, DealerName, " +
                      "BatchNumber, Quantity, PurchaseDate, PurchaseRate, " +
                      "SellingRate, ExpiryDate) values (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             pst = conn.prepareStatement(sql);
+
             pst.setString(1, txt_medicineName.getText());
-            pst.setString(2, txt_dealerName.getText());
+            pst.setString(2, txt_drName.getText());
             pst.setString(3, txt_batchNumber.getText());
             pst.setString(4, txt_quantity.getText());
-//            pst.setString(5, txt_purchaseDate.getText());
+            pst.setString(5, purchaseDate());
             pst.setString(6, txt_purchaseRate.getText());
             pst.setString(7, txt_sellingRate.getText());
-//            pst.setString(8, txt_expiryDate.getText());
+            pst.setString(8, expiryDate());
             pst.execute();
             updateTablePurchases();
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    public void getSelectedPurchases (MouseEvent event) {
+        ind = table_purchases.getSelectionModel().getSelectedIndex();
+        if (ind <= -1) {
+            return;
+        }
+        txt_purchaseId.setText(String.valueOf(col_purchaseId.getCellData(ind)));
+        txt_medicineName.setText(col_medicineName.getCellData(ind));
+        txt_drName.setText(col_drName.getCellData(ind));
+        txt_batchNumber.setText(col_batchNumber.getCellData(ind));
+        txt_quantity.setText(col_quantity.getCellData(ind));
+        txt_purchaseDate.setValue(LocalDate.parse(col_purchaseDate.getCellData(ind)));
+        txt_purchaseRate.setText(col_purchaseRate.getCellData(ind));
+        txt_sellingRate.setText(col_sellingRate.getCellData(ind));
+        txt_expiryDate.setValue(LocalDate.parse(col_expiryDate.getCellData(ind)));
+    }
+    public void deletePurchases() {
+        conn = DatabaseConnection.getConnection();
+        String sql = "delete from purchase_table where purchaseId = ?";
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, txt_purchaseId.getText());
+            pst.execute();
+            updateTablePurchases();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void addItemSales() {
+        conn = DatabaseConnection.getConnection();
+        String sql = "insert into saleitemtable (productName, batch, quantity, amount) values (?, ?, ?, ?)";
+
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, txt_prName.getText());
+            pst.setString(2, cvalue);
+            pst.setString(3, txt_qt.getText());
+            pst.setString(4, txt_amount.getText());
+            pst.execute();
+            updateTableSales();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -313,10 +410,10 @@ public class MainController implements Initializable{
         listDealers = DatabaseConnection.getDataDealers();
         table_dealers.setItems(listDealers);
     }
-
     public void updateTablePurchases() {
+        col_purchaseId.setCellValueFactory(new PropertyValueFactory<>("PurchaseId"));
         col_medicineName.setCellValueFactory(new PropertyValueFactory<>("MedicineName"));
-        col_dealerName.setCellValueFactory(new PropertyValueFactory<>("DealerName"));
+        col_drName.setCellValueFactory(new PropertyValueFactory<>("DealerName"));
         col_batchNumber.setCellValueFactory(new PropertyValueFactory<>("BatchNumber"));
         col_quantity.setCellValueFactory(new PropertyValueFactory<>("Quantity"));
         col_purchaseDate.setCellValueFactory(new PropertyValueFactory<>("PurchaseDate"));
@@ -326,12 +423,18 @@ public class MainController implements Initializable{
         listPurchases = DatabaseConnection.getDataPurchases();
         table_purchases.setItems(listPurchases);
     }
+    public void updateTableSales() {
+
+    }
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
         File logoFile = new File("Img/logo_pharmacy.jpg");
         Image logoImage = new Image(logoFile.toURI().toString());
         pharmacy_logo.setImage(logoImage);
+        for (int i = 1; i < 50; i++)
+            list.add(String.valueOf(i));
+        comboBox.setItems(list);
 
         updateTableCustomers();
         updateTableDealers();

@@ -6,6 +6,7 @@ public class Dealers  {
     String dealerContact;
     String dealerAddress;
 
+
     public Dealers(int dealerId, String dealerName, String dealerContact, String dealerAddress) {
         this.dealerId = dealerId;
         this.dealerName = dealerName;
