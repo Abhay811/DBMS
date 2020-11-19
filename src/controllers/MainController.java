@@ -9,7 +9,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
 import java.io.File;
@@ -198,12 +197,16 @@ public class MainController implements Initializable{
             pst.execute();
             updateTableCustomers();
 
+            txt_customerId.clear();
+            txt_customerName.clear();
+            txt_customerContact.clear();
+            txt_customerAddress.clear();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     @FXML
-    public void getSelectedCustomers (javafx.scene.input.MouseEvent event) {
+    public void getSelectedCustomers() {
         ind = table_customers.getSelectionModel().getSelectedIndex();
         if (ind <= -1) {
 
@@ -229,6 +232,10 @@ public class MainController implements Initializable{
             pst.execute();
 
             updateTableCustomers();
+            txt_customerId.clear();
+            txt_customerName.clear();
+            txt_customerContact.clear();
+            txt_customerAddress.clear();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -242,6 +249,10 @@ public class MainController implements Initializable{
             pst.execute();
             updateTableCustomers();
 
+            txt_customerId.clear();
+            txt_customerName.clear();
+            txt_customerContact.clear();
+            txt_customerAddress.clear();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -258,14 +269,19 @@ public class MainController implements Initializable{
             pst.setString(3, txt_dealerContact.getText());
             pst.setString(4, txt_dealerAddress.getText());
             pst.execute();
-//            System.out.println(txt_dealerName.getText());
+
             updateTableDealers();
+
+            txt_dealerId.clear();
+            txt_dealerName.clear();
+            txt_dealerContact.clear();
+            txt_dealerAddress.clear();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     @FXML
-    public void getSelectedDealers (javafx.scene.input.MouseEvent event) {
+    public void getSelectedDealers() {
         ind = table_dealers.getSelectionModel().getSelectedIndex();
         if (ind <= -1) {
 
@@ -290,6 +306,11 @@ public class MainController implements Initializable{
             pst = conn.prepareStatement(sql);
             pst.execute();
             updateTableDealers();
+
+            txt_dealerId.clear();
+            txt_dealerName.clear();
+            txt_dealerContact.clear();
+            txt_dealerAddress.clear();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -302,6 +323,11 @@ public class MainController implements Initializable{
             pst.setString(1, txt_dealerId.getText());
             pst.execute();
             updateTableDealers();
+
+            txt_dealerId.clear();
+            txt_dealerName.clear();
+            txt_dealerContact.clear();
+            txt_dealerAddress.clear();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -316,7 +342,7 @@ public class MainController implements Initializable{
         LocalDate ld = txt_expiryDate.getValue();
         return String.valueOf(ld);
     }
-    public void comboChanged(ActionEvent event) {
+    public void comboChanged() {
         cvalue = comboBox.getValue();
     }
     public void addPurchase() {
@@ -339,12 +365,21 @@ public class MainController implements Initializable{
             pst.execute();
             updateTablePurchases();
 
+            txt_medicineName.clear();
+            txt_drName.clear();
+            txt_batchNumber.clear();
+            txt_quantity.clear();
+            txt_purchaseRate.clear();
+            txt_sellingRate.clear();
+            txt_purchaseDate.setValue(null);
+            txt_expiryDate.setValue(null);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     @FXML
-    public void getSelectedPurchases (MouseEvent event) {
+    public void getSelectedPurchases() {
         ind = table_purchases.getSelectionModel().getSelectedIndex();
         if (ind <= -1) {
             return;
@@ -368,6 +403,15 @@ public class MainController implements Initializable{
             pst.execute();
             updateTablePurchases();
 
+            txt_purchaseId.clear();
+            txt_medicineName.clear();
+            txt_drName.clear();
+            txt_batchNumber.clear();
+            txt_quantity.clear();
+            txt_purchaseRate.clear();
+            txt_sellingRate.clear();
+            txt_purchaseDate.setValue(null);
+            txt_expiryDate.setValue(null);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -389,8 +433,23 @@ public class MainController implements Initializable{
             e.printStackTrace();
         }
     }
-
-    public void searchButton(ActionEvent event) {
+    @FXML
+    public void getSelectedSales() {
+        ind = table_sales.getSelectionModel().getSelectedIndex();
+    }
+    public void deleteSales() {
+        conn = DatabaseConnection.getConnection();
+        String sql = "delete from purchase_table where sale_id = ?";
+        try {
+            pst = conn.prepareStatement(sql);
+//            pst.setString(1, id.getText());
+            pst.execute();
+            updateTableSales();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void searchButton() {
 
     }
 
@@ -424,7 +483,12 @@ public class MainController implements Initializable{
         table_purchases.setItems(listPurchases);
     }
     public void updateTableSales() {
-
+        col_medName.setCellValueFactory(new PropertyValueFactory<>("ProductName"));
+        col_batch.setCellValueFactory(new PropertyValueFactory<>("Batch"));
+        col_qt.setCellValueFactory(new PropertyValueFactory<>("Quantity"));
+        col_amount.setCellValueFactory(new PropertyValueFactory<>("Amount"));
+        listSales = DatabaseConnection.getDataSales();
+        table_sales.setItems(listSales);
     }
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -439,7 +503,7 @@ public class MainController implements Initializable{
         updateTableCustomers();
         updateTableDealers();
         updateTablePurchases();
-
+        updateTableSales();
 
     }
 

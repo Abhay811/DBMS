@@ -8,7 +8,6 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -24,7 +23,6 @@
    <VBox prefHeight="600.0" prefWidth="260.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
       <Pane prefHeight="130.0" prefWidth="260.0">
          <ImageView fx:id="pharmacy_logo" fitHeight="119.0" fitWidth="164.0" layoutX="49.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../../../../../logo.jpg" />
          </ImageView>
       </Pane>
       <Pane prefHeight="624.0" prefWidth="260.0">
@@ -90,9 +88,9 @@
                </Label>
                <TextField fx:id="txt_customerName" layoutX="185.0" layoutY="54.0" prefHeight="30.0" prefWidth="200.0" />
                <TextField fx:id="txt_customerContact" layoutX="185.0" layoutY="89.0" prefHeight="30.0" prefWidth="200.0" />
-               <Button layoutX="236.0" layoutY="216.0" mnemonicParsing="false" onAction="#addCustomers" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #4ca0b5;" text="Add">
+               <Button layoutX="102.0" layoutY="223.0" mnemonicParsing="false" onAction="#addCustomers" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #4ca0b5;" text="Add">
                   <font>
-                     <Font name="Tahoma" size="14.0" />
+                     <Font name="System Bold" size="14.0" />
                   </font>
                </Button>
                <TextArea fx:id="txt_customerAddress" layoutX="185.0" layoutY="125.0" prefHeight="67.0" prefWidth="200.0" />
@@ -102,8 +100,14 @@
                   </font>
                </Label>
                <TextField fx:id="txt_customerId" layoutX="185.0" layoutY="18.0" prefHeight="30.0" prefWidth="200.0" />
-               <Button layoutX="443.0" layoutY="223.0" mnemonicParsing="false" onAction="#updateCustomers" text="Update" />
-               <Button layoutX="551.0" layoutY="223.0" mnemonicParsing="false" onAction="#deleteCustomers" text="Delete" />
+               <Button layoutX="331.0" layoutY="224.0" mnemonicParsing="false" onAction="#updateCustomers" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #4ca0b5;" text="Update">
+                  <font>
+                     <Font name="System Bold" size="14.0" />
+                  </font></Button>
+               <Button layoutX="579.0" layoutY="224.0" mnemonicParsing="false" onAction="#deleteCustomers" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #4ca0b5;" text="Delete">
+                  <font>
+                     <Font name="System Bold" size="14.0" />
+                  </font></Button>
             </Pane>
             <TableView fx:id="table_customers" onMouseClicked="#getSelectedCustomers" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <columns>
@@ -119,8 +123,8 @@
                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
-               <RowConstraints maxHeight="299.0" minHeight="10.0" prefHeight="299.0" vgrow="SOMETIMES" />
-               <RowConstraints maxHeight="343.0" minHeight="10.0" prefHeight="312.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="323.0" minHeight="10.0" prefHeight="323.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="343.0" minHeight="10.0" prefHeight="288.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <Label layoutX="97.0" layoutY="59.0" text="DealerName:">
@@ -140,9 +144,9 @@
                </Label>
                <TextField fx:id="txt_dealerName" layoutX="185.0" layoutY="55.0" prefHeight="30.0" prefWidth="200.0" />
                <TextField fx:id="txt_dealerContact" layoutX="185.0" layoutY="91.0" prefHeight="30.0" prefWidth="200.0" />
-               <Button layoutX="272.0" layoutY="249.0" mnemonicParsing="false" onAction="#addDealer" prefHeight="30.0" prefWidth="149.0" style="-fx-background-color: #3083b3;" text="Add">
+               <Button layoutX="116.0" layoutY="254.0" mnemonicParsing="false" onAction="#addDealer" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3083b3;" text="Add">
                   <font>
-                     <Font size="14.0" />
+                     <Font name="System Bold" size="14.0" />
                   </font>
                </Button>
                <TextArea fx:id="txt_dealerAddress" layoutX="185.0" layoutY="128.0" prefHeight="97.0" prefWidth="200.0" />
@@ -152,8 +156,14 @@
                   </font>
                </Label>
                <TextField fx:id="txt_dealerId" layoutX="185.0" layoutY="19.0" prefHeight="30.0" prefWidth="200.0" />
-               <Button layoutX="470.0" layoutY="252.0" mnemonicParsing="false" onAction="#updateDealers" text="Update" />
-               <Button layoutX="574.0" layoutY="252.0" mnemonicParsing="false" onAction="#deleteDealers" text="Delete" />
+               <Button layoutX="316.0" layoutY="254.0" mnemonicParsing="false" onAction="#updateDealers" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3083b3;" text="Update">
+                  <font>
+                     <Font name="System Bold" size="14.0" />
+                  </font></Button>
+               <Button layoutX="523.0" layoutY="254.0" mnemonicParsing="false" onAction="#deleteDealers" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3083b3;" text="Delete">
+                  <font>
+                     <Font name="System Bold" size="14.0" />
+                  </font></Button>
             </Pane>
             <TableView fx:id="table_dealers" onMouseClicked="#getSelectedDealers" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <columns>
@@ -173,9 +183,9 @@
                <RowConstraints maxHeight="343.0" minHeight="10.0" prefHeight="268.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <Pane prefHeight="200.0" prefWidth="200.0">
-               <Button layoutX="533.0" layoutY="279.0" mnemonicParsing="false" onAction="#addPurchase" prefHeight="30.0" prefWidth="159.0" style="-fx-background-color: #3083b3;" text="Add">
+               <Button layoutX="342.0" layoutY="262.0" mnemonicParsing="false" onAction="#addPurchase" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3083b3;" text="Add">
                   <font>
-                     <Font size="14.0" />
+                     <Font name="System Bold" size="14.0" />
                   </font>
                </Button>
                <Label layoutX="74.0" layoutY="73.0" text="Medicine Name:">
@@ -198,7 +208,7 @@
                      <Font size="14.0" />
                   </font>
                </Label>
-               <DatePicker fx:id="txt_purchaseDate" layoutX="193.0" layoutY="41.0" onAction="#purchaseDate" />
+               <DatePicker fx:id="txt_purchaseDate" layoutX="181.0" layoutY="38.0" onAction="#purchaseDate" />
                <TextField fx:id="txt_medicineName" layoutX="181.0" layoutY="70.0" prefHeight="25.0" prefWidth="390.0" />
                <TextField fx:id="txt_batchNumber" layoutX="181.0" layoutY="156.0" prefHeight="25.0" prefWidth="390.0" />
                <TextField fx:id="txt_drName" layoutX="181.0" layoutY="110.0" prefHeight="25.0" prefWidth="390.0" />
@@ -221,22 +231,25 @@
                <DatePicker fx:id="txt_expiryDate" layoutX="779.0" layoutY="161.0" onAction="#expiryDate" prefHeight="25.0" prefWidth="149.0" />
                <TextField fx:id="txt_sellingRate" layoutX="779.0" layoutY="123.0" />
                <TextField fx:id="txt_quantity" layoutX="779.0" layoutY="83.0" />
-               <Label layoutX="138.0" layoutY="43.0" text="Date:">
+               <Label layoutX="141.0" layoutY="41.0" text="Date:">
                   <font>
                      <Font size="14.0" />
                   </font>
                </Label>
-               <Button layoutX="743.0" layoutY="282.0" mnemonicParsing="false" onAction="#deletePurchases" text="Delete">
+               <Button layoutX="591.0" layoutY="262.0" mnemonicParsing="false" onAction="#deletePurchases" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3083b3;" text="Delete">
                   <font>
-                     <Font size="14.0" />
+                     <Font name="System Bold" size="14.0" />
                   </font>
                </Button>
-               <Label layoutX="110.0" layoutY="9.0" text="Label" />
-               <TextField fx:id="txt_purchaseId" layoutX="193.0" layoutY="5.0" />
+               <Label layoutX="158.0" layoutY="8.0" text="Id:">
+                  <font>
+                     <Font size="14.0" />
+                  </font></Label>
+               <TextField fx:id="txt_purchaseId" layoutX="181.0" layoutY="5.0" />
             </Pane>
             <TableView fx:id="table_purchases" onMouseClicked="#getSelectedPurchases" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <columns>
-                  <TableColumn fx:id="col_purchaseId" prefWidth="75.0" text="PurchaseId" />
+                  <TableColumn fx:id="col_purchaseId" prefWidth="110.0" text="PurchaseId" />
                   <TableColumn fx:id="col_medicineName" prefWidth="110.0" text="MedicineName" />
                   <TableColumn fx:id="col_drName" prefWidth="110.0" text="DealerName" />
                   <TableColumn fx:id="col_batchNumber" prefWidth="110.0" text="BatchNumber" />
@@ -262,38 +275,36 @@
                <Label layoutX="48.0" layoutY="65.0" text="Customer Name:" />
                <TextField fx:id="txt_cusName" layoutX="147.0" layoutY="61.0" />
                <HBox alignment="CENTER" layoutX="28.0" layoutY="103.0" prefHeight="26.0" prefWidth="804.0" style="-fx-background-color: #4f4e4d;">
-                  <children>
-                     <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="133.0" style="-fx-background-color: #bab5a8;" text="Product Name">
-                        <font>
-                           <Font size="14.0" />
-                        </font>
-                     </Label>
-                     <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="133.0" style="-fx-background-color: #bab5a8;" text="Select Batch">
-                        <font>
-                           <Font size="14.0" />
-                        </font>
-                     </Label>
-                     <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="133.0" style="-fx-background-color: #bab5a8;" text="Quantity">
-                        <font>
-                           <Font size="14.0" />
-                        </font>
-                     </Label>
-                     <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="133.0" style="-fx-background-color: #bab5a8;" text="Expiry">
-                        <font>
-                           <Font size="14.0" />
-                        </font>
-                     </Label>
-                     <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="133.0" style="-fx-background-color: #bab5a8;" text="Rate">
-                        <font>
-                           <Font size="14.0" />
-                        </font>
-                     </Label>
-                     <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="133.0" style="-fx-background-color: #bab5a8;" text="Total Amount">
-                        <font>
-                           <Font size="14.0" />
-                        </font>
-                     </Label>
-                  </children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="133.0" style="-fx-background-color: #bab5a8;" text="Product Name">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="133.0" style="-fx-background-color: #bab5a8;" text="Select Batch">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="133.0" style="-fx-background-color: #bab5a8;" text="Quantity">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="133.0" style="-fx-background-color: #bab5a8;" text="Expiry">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="133.0" style="-fx-background-color: #bab5a8;" text="Rate">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="133.0" style="-fx-background-color: #bab5a8;" text="Total Amount">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
                </HBox>
                <TextField fx:id="txt_prName" layoutX="28.0" layoutY="128.0" prefWidth="135.0" />
                <TextField fx:id="txt_qt" layoutX="296.0" layoutY="128.0" prefWidth="135.0" />
@@ -301,9 +312,12 @@
                <TextField fx:id="txt_rate" layoutX="564.0" layoutY="128.0" prefWidth="135.0" />
                <TextField fx:id="txt_amount" layoutX="698.0" layoutY="128.0" prefWidth="135.0" />
                <ComboBox fx:id="comboBox" layoutX="162.0" layoutY="128.0" onAction="#comboChanged" prefWidth="135.0" />
-               <Button layoutX="364.0" layoutY="212.0" mnemonicParsing="false" onAction="#addItemSales" text="Add item" />
+               <Button layoutX="356.0" layoutY="191.0" mnemonicParsing="false" onAction="#addItemSales" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #3083b3;" text="Add item">
+                  <font>
+                     <Font name="System Bold" size="14.0" />
+                  </font></Button>
             </Pane>
-            <TableView fx:id="table_sales" prefWidth="1021.0" GridPane.rowIndex="1">
+            <TableView fx:id="table_sales" onMouseClicked="#getSelectedSales" prefWidth="1021.0" GridPane.rowIndex="1">
                <columns>
                   <TableColumn fx:id="col_medName" prefWidth="110.0" text="MedicineName" />
                   <TableColumn fx:id="col_batch" prefWidth="110.0" text="Batch" />
@@ -317,44 +331,44 @@
                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
-               <RowConstraints maxHeight="277.0" minHeight="10.0" prefHeight="182.0" vgrow="SOMETIMES" />
-               <RowConstraints maxHeight="438.0" minHeight="10.0" prefHeight="429.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="277.0" minHeight="10.0" prefHeight="219.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="438.0" minHeight="10.0" prefHeight="392.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <Pane prefHeight="200.0" prefWidth="200.0">
-               <Label layoutX="14.0" layoutY="14.0" text="Search Inventory:">
+               <Label layoutX="14.0" layoutY="21.0" text="Search Inventory:">
                   <font>
                      <Font name="Georgia Bold Italic" size="14.0" />
                   </font>
                </Label>
-               <Label layoutX="151.0" layoutY="73.0" text="Product Name">
+               <Label layoutX="151.0" layoutY="78.0" text="Product Name">
                   <font>
                      <Font size="14.0" />
                   </font>
                </Label>
-               <Label layoutX="471.0" layoutY="73.0" text="Qty less than/equal">
+               <Label layoutX="471.0" layoutY="78.0" text="Qty less than/equal">
                   <font>
                      <Font size="14.0" />
                   </font>
                </Label>
-               <Label layoutX="631.0" layoutY="72.0" text="Expires on or before">
+               <Label layoutX="631.0" layoutY="77.0" text="Expires on or before">
                   <font>
                      <Font size="14.0" />
                   </font>
                </Label>
-               <Label layoutX="334.0" layoutY="73.0" text="Batch">
+               <Label layoutX="334.0" layoutY="78.0" text="Batch">
                   <font>
                      <Font size="14.0" />
                   </font>
                </Label>
-               <Button layoutX="762.0" layoutY="94.0" mnemonicParsing="false" onAction="#searchButton" prefHeight="30.0" prefWidth="84.0" text="Search">
+               <Button layoutX="762.0" layoutY="99.0" mnemonicParsing="false" onAction="#searchButton" prefHeight="30.0" prefWidth="90.0" text="Search">
                   <font>
-                     <Font size="14.0" />
+                     <Font name="System Bold" size="14.0" />
                   </font>
                </Button>
-               <TextField fx:id="txt_productName" layoutX="119.0" layoutY="94.0" prefHeight="30.0" prefWidth="185.0" promptText="Product Name" />
-               <TextField fx:id="txt_batNumber" layoutX="304.0" layoutY="94.0" prefHeight="30.0" prefWidth="159.0" promptText="Batch Number" />
-               <TextField fx:id="txt_quantitiylLessEqual" layoutX="463.0" layoutY="94.0" prefHeight="30.0" prefWidth="166.0" promptText="Qty less than/equal" />
-               <DatePicker fx:id="txt_expiresOrBefore" layoutX="629.0" layoutY="94.0" prefHeight="30.0" prefWidth="133.0" promptText="Expires on or before" />
+               <TextField fx:id="txt_productName" layoutX="119.0" layoutY="99.0" prefHeight="30.0" prefWidth="185.0" promptText="Product Name" />
+               <TextField fx:id="txt_batNumber" layoutX="304.0" layoutY="99.0" prefHeight="30.0" prefWidth="159.0" promptText="Batch Number" />
+               <TextField fx:id="txt_quantitiyLessEqual" layoutX="463.0" layoutY="99.0" prefHeight="30.0" prefWidth="166.0" promptText="Qty less than/equal" />
+               <DatePicker fx:id="txt_expiresOrBefore" layoutX="629.0" layoutY="99.0" prefHeight="30.0" prefWidth="133.0" promptText="Expires on or before" />
             </Pane>
             <TableView fx:id="table_inventory" prefHeight="379.0" prefWidth="1021.0" GridPane.rowIndex="1">
                <columns>
