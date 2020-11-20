@@ -15,7 +15,6 @@ import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
@@ -149,7 +148,9 @@ public class MainController implements Initializable{
     @FXML
     private TextField txt_productName;
     @FXML
-    private TextField txt_quantitiylLessEqual;
+    private TextField txt_batNumber;
+    @FXML
+    private TextField txt_quantitiyLessEqual;
     @FXML
     private DatePicker txt_expiresOrBefore;
     @FXML
@@ -177,11 +178,11 @@ public class MainController implements Initializable{
     ObservableList<Dealers> listDealers;
     ObservableList<Purchases> listPurchases;
     ObservableList<SaleCounter> listSales;
+    ObservableList<Inventory> listInventory;
     ObservableList<String> list = FXCollections.observableArrayList();
 
     int ind = -1;
     Connection conn = null;
-    ResultSet rs = null;
     PreparedStatement pst = null;
     String cvalue = null;
     public void addCustomers () {
@@ -315,6 +316,7 @@ public class MainController implements Initializable{
             e.printStackTrace();
         }
     }
+
     public void deleteDealers() {
         conn = DatabaseConnection.getConnection();
         String sql = "delete from dealer_table where dealerId = ?";
@@ -350,6 +352,8 @@ public class MainController implements Initializable{
         String sql = "insert into purchase_table (MedicineName, DealerName, " +
                      "BatchNumber, Quantity, PurchaseDate, PurchaseRate, " +
                      "SellingRate, ExpiryDate) values (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql2 = "insert into inventorytable (ProductName, BatchNumber, Quantity," +
+                       "PurchaseDate, PurchaseRate, SellingRate, ExpiryDate) values (?, ?, ?, ?, ?, ?, ?)";
 
         try {
             pst = conn.prepareStatement(sql);
@@ -365,6 +369,18 @@ public class MainController implements Initializable{
             pst.execute();
             updateTablePurchases();
 
+            pst = conn.prepareStatement(sql2);
+            pst.setString(1, txt_medicineName.getText());
+            pst.setString(2, txt_batchNumber.getText());
+            pst.setString(3, txt_quantity.getText());
+            pst.setString(4, purchaseDate());
+            pst.setString(5, txt_purchaseRate.getText());
+            pst.setString(6, txt_sellingRate.getText());
+            pst.setString(7, expiryDate());
+            pst.execute();
+            updateTableInventory();
+
+            txt_purchaseId.clear();
             txt_medicineName.clear();
             txt_drName.clear();
             txt_batchNumber.clear();
@@ -437,20 +453,37 @@ public class MainController implements Initializable{
     public void getSelectedSales() {
         ind = table_sales.getSelectionModel().getSelectedIndex();
     }
-    public void deleteSales() {
+//    public void deleteSales() {
+//        conn = DatabaseConnection.getConnection();
+//        String sql = "delete from purchase_table where sale_id = ?";
+//        try {
+//            pst = conn.prepareStatement(sql);
+////            pst.setString(1, id.getText());
+//            pst.execute();
+//            updateTableSales();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+//    public Date purchaseDateInv() {
+//        java.util.Date date = java.util.Date.from(txt_expiresOrBefore.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+//
+//        return new Date(date.getTime());
+//    }
+    public void searchButton() {
         conn = DatabaseConnection.getConnection();
-        String sql = "delete from purchase_table where sale_id = ?";
+        String sql = "select * from inventorytable where ProductName = ? and batchNumber = ? and quantity <= ?";
         try {
             pst = conn.prepareStatement(sql);
-//            pst.setString(1, id.getText());
+            pst.setString(1, txt_productName.getText());
+            pst.setString(2, String.valueOf(txt_batNumber.getText()));
+            pst.setString(3, String.valueOf(txt_quantitiyLessEqual.getText()));
+//            pst.setString(4, String.valueOf(purchaseDateInv()));
             pst.execute();
-            updateTableSales();
+//            updateTableInventory();
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-    public void searchButton() {
-
     }
 
     public void updateTableCustomers() {
@@ -490,6 +523,17 @@ public class MainController implements Initializable{
         listSales = DatabaseConnection.getDataSales();
         table_sales.setItems(listSales);
     }
+    public void updateTableInventory() {
+        col_productName.setCellValueFactory(new PropertyValueFactory<>("ProductName"));
+        col_batNumber.setCellValueFactory(new PropertyValueFactory<>("BatchNumber"));
+        col_quant.setCellValueFactory(new PropertyValueFactory<>("Quantity"));
+        col_purDate.setCellValueFactory(new PropertyValueFactory<>("PurchaseDate"));
+        col_purRate.setCellValueFactory(new PropertyValueFactory<>("PurchaseRate"));
+        col_selRate.setCellValueFactory(new PropertyValueFactory<>("SellingRate"));
+        col_expDate.setCellValueFactory(new PropertyValueFactory<>("ExpiryDate"));
+        listInventory = DatabaseConnection.getDataInventories();
+        table_inventory.setItems(listInventory);
+    }
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
@@ -504,7 +548,7 @@ public class MainController implements Initializable{
         updateTableDealers();
         updateTablePurchases();
         updateTableSales();
-
+        updateTableInventory();
     }
 
     @FXML
